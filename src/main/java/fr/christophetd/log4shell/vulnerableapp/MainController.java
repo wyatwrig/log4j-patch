@@ -15,8 +15,12 @@ public class MainController {
 
     @GetMapping("/")
     public String index(@RequestHeader("X-Api-Version") String apiVersion) {
+	if (!apiVersion.contains("jndi")) {
         logger.info("Received a request for API version " + apiVersion);
-        return "Hello, world!";
+        return ":)";
+	} else {
+	return "JNDI attempted";
+	}
     }
 
 }
